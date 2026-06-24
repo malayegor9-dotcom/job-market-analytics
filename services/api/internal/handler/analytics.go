@@ -41,15 +41,14 @@ func (h *Handler) TopSkills(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": skills})
 }
 
-var stats struct {
-	Total      int     `json:"total_vacancies"`
-	WithSalary int     `json:"with_salary"`
-	AvgMin     float64 `json:"avg_salary_min"`
-	AvgMax     float64 `json:"avg_salary_max"`
-}
-
 // SalaryStats GET /api/v1/analytics/salary
 func (h *Handler) SalaryStats(c *gin.Context) {
+	var stats struct {
+		Total      int     `json:"total_vacancies"`
+		WithSalary int     `json:"with_salary"`
+		AvgMin     float64 `json:"avg_salary_min"`
+		AvgMax     float64 `json:"avg_salary_max"`
+	}
 
 	err := h.db.QueryRow(c, `
 		SELECT
