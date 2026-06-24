@@ -1,0 +1,7 @@
+streamlit==1.35.0
+plotly==5.22.0
+pandas==2.2.2
+psycopg[binary]==3.2.10
+sqlalchemy==2.0.30
+
+#Python зависимости для дашборда
